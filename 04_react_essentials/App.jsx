@@ -1,6 +1,6 @@
 /** @format */
 
-import Exercise from './components/Exercise14';
+import Exercise from './components/Exercise15';
 
 function App() {
   return (
