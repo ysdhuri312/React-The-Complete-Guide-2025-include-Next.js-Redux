@@ -1,7 +1,7 @@
 /** @format */
 
 import { useState } from 'react';
-import styled from 'styled-components';
+import Button from './Button';
 
 export default function AuthInputs() {
   const [enteredEmail, setEnteredEmail] = useState('');
@@ -22,17 +22,6 @@ export default function AuthInputs() {
 
   const emailNotValid = submitted && !enteredEmail.includes('@');
   const passwordNotValid = submitted && enteredPassword.trim().length < 6;
-
-  const Button = styled.button`
-    padding: 1rem 2rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    border-radius: 0.25rem;
-    color: #1f2937;
-    background-color: #3d70cfff;
-    border-radius: 6px;
-    border: none;
-  `;
 
   return (
     <div id='auth-inputs'>
@@ -59,12 +48,12 @@ export default function AuthInputs() {
         </p>
       </div>
       <div className='actions'>
-        <Button type='button' className='text-button'>
-          Create a new account
-        </Button>
-        <Button className='button' onClick={handleLogin}>
-          Sign In
-        </Button>
+        <Button
+          label='Create a new account'
+          type='button'
+          className='text-button'
+        />
+        <Button label=' Sign In' className='button' onClick={handleLogin} />
       </div>
     </div>
   );
