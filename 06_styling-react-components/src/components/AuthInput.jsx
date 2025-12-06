@@ -1,6 +1,7 @@
 /** @format */
 
 import { useState } from 'react';
+import styled from 'styled-components';
 
 export default function AuthInputs() {
   const [enteredEmail, setEnteredEmail] = useState('');
@@ -22,13 +23,22 @@ export default function AuthInputs() {
   const emailNotValid = submitted && !enteredEmail.includes('@');
   const passwordNotValid = submitted && enteredPassword.trim().length < 6;
 
+  const Button = styled.button`
+    padding: 1rem 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 0.25rem;
+    color: #1f2937;
+    background-color: #3d70cfff;
+    border-radius: 6px;
+    border: none;
+  `;
+
   return (
     <div id='auth-inputs'>
       <div className='controls'>
         <p>
-          <label className={`lable ${emailNotValid ? 'invalid' : undefined}`}>
-            Email
-          </label>
+          <label className={emailNotValid ? 'invalid' : undefined}>Email</label>
           <input
             type='email'
             className={emailNotValid ? 'invalid' : undefined}
@@ -36,7 +46,9 @@ export default function AuthInputs() {
           />
         </p>
         <p>
-          <label>Password</label>
+          <label className={passwordNotValid ? 'invalid' : undefined}>
+            Password
+          </label>
           <input
             type='password'
             className={passwordNotValid ? 'invalid' : undefined}
@@ -47,12 +59,12 @@ export default function AuthInputs() {
         </p>
       </div>
       <div className='actions'>
-        <button type='button' className='text-button'>
+        <Button type='button' className='text-button'>
           Create a new account
-        </button>
-        <button className='button' onClick={handleLogin}>
+        </Button>
+        <Button className='button' onClick={handleLogin}>
           Sign In
-        </button>
+        </Button>
       </div>
     </div>
   );
