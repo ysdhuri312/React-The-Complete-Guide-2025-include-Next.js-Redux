@@ -1,7 +1,6 @@
 /** @format */
 
 import { useState } from 'react';
-import Button from './Button';
 
 export default function AuthInputs() {
   const [enteredEmail, setEnteredEmail] = useState('');
@@ -48,12 +47,12 @@ export default function AuthInputs() {
         </p>
       </div>
       <div className='actions'>
-        <Button
-          label='Create a new account'
-          type='button'
-          className='text-button'
-        />
-        <Button label=' Sign In' className='button' onClick={handleLogin} />
+        <button type='button' className='text-button'>
+          Create a new account
+        </button>
+        <button className='button' onClick={handleLogin}>
+          Sign In
+        </button>
       </div>
     </div>
   );
